@@ -37,6 +37,7 @@ fn main() {
         // x.checked_add(1).expect("overflow");
         x -= 1;
         println!("x = {x}");
+
         // Кортеж (классика)
         let tuple = (10, 20, 30);
         println!("tuple = {:?}", tuple);
@@ -45,5 +46,30 @@ fn main() {
         println!("x = {x}, y = {y}, z = {z}");
         // Обращение к элементу кортежа
         println!("tuple[0] = {}", tuple.0);
+
+        // Массив
+        let mut array = [1, 2, 3, 4];
+        println!("array = {:?}", array);
+        println!("array[3] = {}", array[3]);
+        let zeroes = [0; 10];
+        println!("zeroes = {:?}", zeroes);
+        // Выходить за пределы массива нельзя.
+        // array[4] = 1; // Ошибка!
+        // println!("array[4] = {}", array[4])
+        array[3] = 4;
+        println!("array[3] = {}", array[3]);
+    }
+
+    /*
+    Операторы и выражения
+    */
+
+    {
+        let x = {
+            let y = 10;
+            y
+        };
+        println!("x = {x}");
+        // println!("y = {y}"); // Ошибка, так как y в другом пространстве.
     }
 }
