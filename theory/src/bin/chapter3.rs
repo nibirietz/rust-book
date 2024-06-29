@@ -65,11 +65,63 @@ fn main() {
     */
 
     {
+        // Операторы, в отличии от выражений, не возвращают значений
         let x = {
-            let y = 10;
-            y
+            let y = 10; // Оператор
+            y // Выражение
         };
         println!("x = {x}");
         // println!("y = {y}"); // Ошибка, так как y в другом пространстве.
+    }
+
+    /*
+    Условные операторы, циклы
+    */
+
+    {
+        // if, else
+        let x = 10;
+        if x > 5 {
+            println!("{x} > 5");
+        } else {
+            println!("{x} <= 5");
+        }
+
+        // loop
+        let mut y = 1;
+        loop {
+            y *= 2;
+            if y > 5000 {
+                println!("{y}");
+                break;
+            }
+        }
+
+        // loop label
+        let mut x = 10;
+        let mut y = 0;
+        'x: loop {
+            x -= 1;
+            loop {
+                y += 1;
+                if x == y {
+                    println!("x = y = {y}");
+                    break 'x;
+                }
+            }
+        }
+
+        // while
+        let mut y = 1;
+        while y < 5000 {
+            y *= 2;
+        }
+        println!("{y}");
+
+        // for
+        let a = [1, 4, 2, 10, 0];
+        for x in a {
+            println!("{x}");
+        }
     }
 }
